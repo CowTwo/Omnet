@@ -1,0 +1,6 @@
+12:54:11 **** Build of configuration debug for project tictoc ****
+make MODE=debug all 
+make: Nothing to be done for 'all'.
+
+12:54:11 Build Finished (took 424ms)
+
