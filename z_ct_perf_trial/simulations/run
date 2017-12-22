@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/z_ct_perf_trial -n .:../src $*
+# for shared lib, use: opp_run -l ../src/z_ct_perf_trial -n .:../src $*

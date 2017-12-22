@@ -60,3 +60,16 @@ cd src && make
 make[1]: Entering directory '/work/Omnet/z_ct_openssl_trial/src'
 make[1]: Nothing to be done for 'all'.
 make[1]: Leaving directory '/work/Omnet/z_ct_openssl_trial/src'
+02:14:27 **** Build of configuration debug for project z_ct_perf_trial ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_perf_trial/src'
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_perf_trial_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_perf_trial/src'
+02:14:57 **** Incremental Build of configuration debug for project z_ct_perf_trial ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_perf_trial/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_perf_trial/src'

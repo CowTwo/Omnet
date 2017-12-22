@@ -2243,3 +2243,27 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY org.eclipse.launchbar.core 2 0 2017-12-22 01:32:12.815
 !MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+!SESSION 2017-12-22 01:49:24.068 -----------------------------------------------
+eclipse.buildId=5.2.0.170929-f95315d
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.omnetpp.main 1 0 2017-12-22 01:49:44.498
+!MESSAGE OMNeT++ IDE 5.2.0.170929-f95315d started.
+
+!ENTRY org.eclipse.cdt.ui 2 0 2017-12-22 02:10:50.877
+!MESSAGE Default project not found in New C/C++ Project Wizard
+
+!ENTRY org.eclipse.cdt.core 1 0 2017-12-22 02:11:02.107
+!MESSAGE Indexed 'z_ct_perf_trial' (0 sources, 0 headers) in 0.003 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2017-12-22 02:52:37.042 -----------------------------------------------
+eclipse.buildId=5.2.0.170929-f95315d
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.omnetpp.main 1 0 2017-12-22 02:53:10.827
+!MESSAGE OMNeT++ IDE 5.2.0.170929-f95315d started.
