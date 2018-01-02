@@ -1,0 +1,87 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2017 Andras Varga, OpenSim Ltd.
+Version: 5.2, build: 170929-f95315d, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Cmdenv...
+
+Loading NED files from .:  2
+Loading NED files from ../src:  2
+
+Preparing for running configuration General, run #0...
+Assigned runID=General-0-20180101-05:27:18-94
+Setting up network "Tictoc"...
+Initializing...
+group 19 is configured, prime is 32 bytes
+group 26 is configured, prime is 28 bytes
+group 21 is configured, prime is 66 bytes
+group 25 is configured, prime is 24 bytes
+group 20 is configured, prime is 48 bytes
+group 19 is configured, prime is 32 bytes
+group 26 is configured, prime is 28 bytes
+group 21 is configured, prime is 66 bytes
+group 25 is configured, prime is 24 bytes
+group 20 is configured, prime is 48 bytes
+
+Running simulation...
+** Event #0   t=0   Elapsed: 0.000s (0m 00s)  0% completed  (0% total)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 1   present: 1   in FES: 2
+k:
+406498ed 08234fb2 b12a9295 b654557a 616f2170 f9b07d0d 07ebb721 53ea3bfb
+
+keyseed:
+7e9a0f77 54573e53 f27d3757 bf3d49d7 3b0de0bb 0d7e29ef bc848b08 f1c1d021
+
+KCK:
+4eef3ede 670aa44c 0b7daa52 a9251b28 24bf0747 a7d13ce3 1e2feac1 a726a54b
+
+PMK:
+5cf1b20a 0cecb95d 6264fd41 5e9d2a1d 2dd61b57 fc2c0789 ead207e5 6e25d408
+
+local confirm:
+0100037a ce9d6569 c89b79a8 1ce68817 9f532812 6acb2568 41c34851 3ef2997e 
+a535
+
+k:
+406498ed 08234fb2 b12a9295 b654557a 616f2170 f9b07d0d 07ebb721 53ea3bfb
+
+keyseed:
+7e9a0f77 54573e53 f27d3757 bf3d49d7 3b0de0bb 0d7e29ef bc848b08 f1c1d021
+
+KCK:
+4eef3ede 670aa44c 0b7daa52 a9251b28 24bf0747 a7d13ce3 1e2feac1 a726a54b
+
+PMK:
+5cf1b20a 0cecb95d 6264fd41 5e9d2a1d 2dd61b57 fc2c0789 ead207e5 6e25d408
+
+local confirm:
+01008f5f 9bcc2cde f4a2dc5d 64181226 cfd0ce88 0df82cb5 914f9bea 58e04674 
+84be
+
+peer's confirm:
+0100037a ce9d6569 c89b79a8 1ce68817 9f532812 6acb2568 41c34851 3ef2997e 
+a535
+
+PMK:
+5cf1b20a 0cecb95d 6264fd41 5e9d2a1d 2dd61b57 fc2c0789 ead207e5 6e25d408
+
+peer's confirm:
+01008f5f 9bcc2cde f4a2dc5d 64181226 cfd0ce88 0df82cb5 914f9bea 58e04674 
+84be
+
+PMK:
+5cf1b20a 0cecb95d 6264fd41 5e9d2a1d 2dd61b57 fc2c0789 ead207e5 6e25d408
+
+** Event #5   t=1   Elapsed: 0.010s (0m 00s)  100% completed  (100% total)
+     Speed:     ev/sec=500   simsec/sec=30   ev/simsec=16.6667
+     Messages:  created: 4   present: 4   in FES: 0
+
+<!> Simulation time limit reached -- at t=1s, event #5
+
+Calling finish() at end of Run #0...
+undisposed object: (omnetpp::cMessage) Tictoc.tic.tictocMsg -- check module destructor
+undisposed object: (omnetpp::cMessage) Tictoc.tic.tictocMsg -- check module destructor
+undisposed object: (omnetpp::cMessage) Tictoc.toc.tictocMsg -- check module destructor
+undisposed object: (omnetpp::cMessage) Tictoc.toc.tictocMsg -- check module destructor
+
+End.

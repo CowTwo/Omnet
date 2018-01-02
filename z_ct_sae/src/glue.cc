@@ -1,4 +1,7 @@
 #include "gl_typedef.h"
+#include <omnetpp.h>
+using namespace omnetpp;
+
 
 #define BUFLEN 1024
 

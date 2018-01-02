@@ -14,8 +14,6 @@
 // 
 
 #include "Txc.h"
-#include "ieee802_11.h"
-#include "gl_typedef.h"
 
 namespace z_ct_sae {
 
@@ -24,43 +22,36 @@ Define_Module(Txc);
 
 void Txc::initialize()
 {
-    rSaeCtx.bnctx=NULL;
-    if (env_init(&rSaeCtx)!=1){
-        ASSERT(0);
-    }
-
     if (par("sendInitialMessage").boolValue())
     {
+        unsigned char l_myMac[ETH_ALEN]={0x10,0x20,0x30,0x00,0x00,0x00};
+        unsigned char l_herMac[ETH_ALEN]={0x40,0x50,0x60,0x00,0x00,0x00};
+
+        memset(&rSaeCtx, 0x0, sizeof(SAE_CTX_T));
+
         rSaeCtx.pSimModuleObject=this;
-        //cMessage *msg = new cMessage("tictocMsg");
+        memcpy(rSaeCtx.myMac, l_myMac, ETH_ALEN);
+        memcpy(rSaeCtx.herMac, l_herMac, ETH_ALEN);
 
-        //++
-        {
-            unsigned char l_myMac[ETH_ALEN]={0x10,0x20,0x30,0x00,0x00,0x00};
-            unsigned char l_herMac[ETH_ALEN]={0x40,0x50,0x60,0x00,0x00,0x00};
-            memcpy(rSaeCtx.myMac, l_myMac, ETH_ALEN);
-            memcpy(rSaeCtx.herMac, l_herMac, ETH_ALEN);
-
-            saeInitiateCommit2Peer(&rSaeCtx);
+        if (sae_env_init(&rSaeCtx)!=1){
+            ASSERT(0);
         }
-#if 0
-        msg->setContextPointer(rSaeCtx.frameBuf);
-        msg->setKind(rSaeCtx.frmeLen);
-        //--
 
-        send(msg, "out");
-#endif
+        saeInitiateCommit2Peer(&rSaeCtx);
     }
     else{
+        unsigned char l_myMac[ETH_ALEN]={0x40,0x50,0x60,0x00,0x00,0x00};
+        unsigned char l_herMac[ETH_ALEN]={0x10,0x20,0x30,0x00,0x00,0x00};
+
+        memset(&rSaeCtx, 0x0, sizeof(SAE_CTX_T));
+
         rSaeCtx.pSimModuleObject=this;
-        //++
-        {
-            unsigned char l_myMac[ETH_ALEN]={0x40,0x50,0x60,0x00,0x00,0x00};
-            unsigned char l_herMac[ETH_ALEN]={0x10,0x20,0x30,0x00,0x00,0x00};
-            memcpy(rSaeCtx.myMac, l_myMac, ETH_ALEN);
-            memcpy(rSaeCtx.herMac, l_herMac, ETH_ALEN);
+        memcpy(rSaeCtx.myMac, l_myMac, ETH_ALEN);
+        memcpy(rSaeCtx.herMac, l_herMac, ETH_ALEN);
+
+        if (sae_env_init(&rSaeCtx)!=1){
+            ASSERT(0);
         }
-        //--
 
     }
 }
@@ -75,8 +66,6 @@ void Txc::handleMessage(cMessage *msg)
 
     process_mgmt_frame(&rSaeCtx, frame, len, rSaeCtx.myMac, (void*)0);
 
-    // just send back the message we received
-    //send(msg, "out");
 }
 
 

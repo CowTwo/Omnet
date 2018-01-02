@@ -1,9 +1,9 @@
-13:38:17 **** Clean-only build of configuration gcc-debug for project inet ****
+13:13:38 **** Clean-only build of configuration gcc-debug for project inet ****
 make MODE=debug -j1 clean 
 cd src && make clean
 make[1]: Entering directory '/work/Omnet/inet/src'
 Cleaning libINET_dbg.so
 make[1]: Leaving directory '/work/Omnet/inet/src'
 
-13:38:20 Build Finished (took 2s.995ms)
+13:13:41 Build Finished (took 2s.967ms)
 

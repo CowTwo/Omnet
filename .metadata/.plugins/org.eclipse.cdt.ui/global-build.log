@@ -3541,3 +3541,225 @@ cd src && make
 make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
 make[1]: Nothing to be done for 'all'.
 make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+05:40:37 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+other_if.cc
+sae.cc
+Txc.cc
+Txc.cc:28:9: error: use of undeclared identifier 'env_init'
+    if (env_init(&rSaeCtx)!=1){
+        ^
+1 error generated.
+Makefile:102: recipe for target '../out/clang-debug/src/Txc.o' failed
+make[1]: *** [../out/clang-debug/src/Txc.o] Error 1
+make: *** [all] Error 2
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+05:41:04 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+06:53:55 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+glue.cc
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+06:55:57 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+other_if.cc
+sae.cc
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+07:22:10 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+In file included from sae.cc:9:
+./sae.c:92:47: error: member reference type 'struct sae_config' is not a pointer; did you mean to use '.'?
+    simDbgPrint("sae_conf->pwd=%s\n", sae_conf->pwd);
+                                      ~~~~~~~~^~
+                                              .
+1 error generated.
+Makefile:102: recipe for target '../out/clang-debug/src/sae.o' failed
+make[1]: *** [../out/clang-debug/src/sae.o] Error 1
+make: *** [all] Error 2
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+07:22:37 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+08:04:14 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+other_if.cc
+sae.cc
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+08:06:22 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+08:08:26 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+08:09:59 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+08:11:23 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+12:59:57 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:03:08 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:03:20 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:09:55 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:12:18 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+ln: failed to create hard link 'z_ct_sae_dbg': File exists
+make[1]: *** [z_ct_sae_dbg] Error 1
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+make: *** [all] Error 2
+13:13:28 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:13:38 **** Clean-only build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 clean 
+cd src && make clean
+make[1]: Entering directory '/work/Omnet/inet/src'
+Cleaning libINET_dbg.so
+make[1]: Leaving directory '/work/Omnet/inet/src'
+13:13:42 **** Clean-only build of configuration debug for project z_ct_openssl_trial ****
+make MODE=debug clean 
+cd src && make clean
+make[1]: Entering directory '/work/Omnet/z_ct_openssl_trial/src'
+Cleaning z_ct_openssl_trial_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_openssl_trial/src'
+13:13:42 **** Clean-only build of configuration debug for project z_ct_perf_trial ****
+make MODE=debug clean 
+cd src && make clean
+make[1]: Entering directory '/work/Omnet/z_ct_perf_trial/src'
+Cleaning z_ct_perf_trial_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_perf_trial/src'
+13:13:42 **** Clean-only build of configuration debug for project z_ct_sae ****
+make MODE=debug clean 
+cd src && make clean
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+Cleaning z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:13:45 **** Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+glue.cc
+other_if.cc
+sae.cc
+Txc.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:13:54 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:17:15 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:21:32 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:25:21 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:52:52 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:58:39 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+13:16:10 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'

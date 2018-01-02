@@ -58,7 +58,7 @@ unsigned int function_mdlen = SHA256_DIGEST_LENGTH;
 //TAILQ_HEAD(fubar, candidate) blacklist;
 //TAILQ_HEAD(blah, candidate) peers;
 
-int env_init(P_SAE_CTX_T pSaeCtx)
+int sae_env_init(P_SAE_CTX_T pSaeCtx)
 {
     char *conffile = (char*)"/work/C_Project/openssl_trial/authsae.sample.cfg";
     char *meshid=(char*)"";
@@ -87,6 +87,11 @@ int env_init(P_SAE_CTX_T pSaeCtx)
 
         config_destroy(&cfg);
     }
+
+    printf("ct_MyMac:" MACSTR "\n", MAC2STR(pSaeCtx->myMac));
+    printf("sae_conf.pwd=%s\n", sae_conf.pwd);
+    printf("sae_conf.num_groups=%d\n", sae_conf.num_groups);
+    DumpHex(sae_conf.group, sae_conf.num_groups*sizeof(int));
 
     if (sae_initialize(pSaeCtx, meshid, &sae_conf) < 0) {
         fprintf(stderr, "cannot configure SAE, check config file!\n");
@@ -558,6 +563,35 @@ process_mgmt_frame (P_SAE_CTX_T pSaeCtx, struct ieee80211_mgmt_frame *frame, int
 #endif
 
     return 0;
+}
+
+void DumpHex(const void* data, size_t size) {
+    char ascii[17];
+    size_t i, j;
+    ascii[16] = '\0';
+    for (i = 0; i < size; ++i) {
+        printf("%02X ", ((unsigned char*)data)[i]);
+        if (((unsigned char*)data)[i] >= ' ' && ((unsigned char*)data)[i] <= '~') {
+            ascii[i % 16] = ((unsigned char*)data)[i];
+        } else {
+            ascii[i % 16] = '.';
+        }
+        if ((i+1) % 8 == 0 || i+1 == size) {
+            printf(" ");
+            if ((i+1) % 16 == 0) {
+                printf("|  %s \n", ascii);
+            } else if (i+1 == size) {
+                ascii[(i+1) % 16] = '\0';
+                if ((i+1) % 16 <= 8) {
+                    printf(" ");
+                }
+                for (j = (i+1) % 16; j < 16; ++j) {
+                    printf("   ");
+                }
+                printf("|  %s \n", ascii);
+            }
+        }
+    }
 }
 
 

@@ -16,6 +16,7 @@
 #include <openssl/sha.h>
 #include <sys/queue.h>
 #include "ieee802_11.h"
+#include "gl_typedef.h"
 
 
 #define    SAE_MAX_EC_GROUPS    10
@@ -167,7 +168,7 @@ int
 process_mgmt_frame (P_SAE_CTX_T pSaeCtx, struct ieee80211_mgmt_frame *frame, int len,
         unsigned char *me, void *cookie);
 
-int env_init(P_SAE_CTX_T pSaeCtx);
+int sae_env_init(P_SAE_CTX_T pSaeCtx);
 int saeInitiateCommit2Peer(P_SAE_CTX_T pSaeCtx);
 int meshd_write_mgmt(P_SAE_CTX_T pSaeCtx, char *buf, int framelen, void *cookie);
 int
@@ -175,6 +176,6 @@ process_confirm (P_SAE_CTX_T pSaeCtx, struct candidate *peer,
         struct ieee80211_mgmt_frame *frame, int len);
 void
 print_buffer (char *str, unsigned char *buf, int len);
-
+void DumpHex(const void* data, size_t size);
 
 #endif /* SAE_H_ */
