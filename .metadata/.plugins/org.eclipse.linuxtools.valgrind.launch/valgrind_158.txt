@@ -1,0 +1,585 @@
+==158== Conditional jump or move depends on uninitialised value(s)
+==158==    at 0x53F88D9: omnetpp::qtenv::ZoomLabel::setZoomFactor(double) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x541A6AD: omnetpp::qtenv::ModuleCanvasViewer::ModuleCanvasViewer() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5463118: omnetpp::qtenv::ModuleInspector::createViews(bool) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x546291C: omnetpp::qtenv::ModuleInspector::ModuleInspector(QWidget*, bool, omnetpp::qtenv::InspectorFactory*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5467D4D: omnetpp::qtenv::ModuleInspectorFactory::createInspector(QWidget*, bool) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542E891: omnetpp::qtenv::Qtenv::addEmbeddedInspector(omnetpp::qtenv::InspectorFactory*, QWidget*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542CA30: omnetpp::qtenv::Qtenv::doRun() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5088CE2: omnetpp::envir::EnvirBase::run() (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5086404: omnetpp::envir::EnvirBase::run(int, char**, omnetpp::cConfiguration*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5080E5F: omnetpp::envir::setupUserInterface(int, char**) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x50818FF: evMain (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x6BD682F: (below main) (/build/glibc-bfm8X4/glibc-2.23/csu/../csu/libc-start.c:291)
+==158== 
+==158== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==158==    at 0x6CB2FBD: ??? (/build/glibc-bfm8X4/glibc-2.23/misc/../sysdeps/unix/syscall-template.S:84)
+==158==    by 0xF27BF28: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xF27C31C: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xF27CA76: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xF27CC43: xcb_flush (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0x125E0CB3: QXcbWindow::hide() (in /usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.5.1)
+==158==    by 0x7ADEB17: QWindow::setVisible(bool) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x8594816: QWidgetPrivate::hide_sys() (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x859BE73: QWidgetPrivate::hide_helper() (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x85A07FF: QWidget::setVisible(bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x85A1B2B: QWidget::setParent(QWidget*, QFlags<Qt::WindowType>) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x85A2C6B: QWidget::setParent(QWidget*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==  Address 0x10bbbd29 is 4,537 bytes inside a block of size 21,152 alloc'd
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xF27B8DB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xF27F678: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xB0EE809: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==158==    by 0xB0DF391: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==158==    by 0x125CD70E: QXcbConnection::QXcbConnection(QXcbNativeInterface*, bool, unsigned int, char const*) (in /usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.5.1)
+==158==    by 0x125D0BAC: QXcbIntegration::QXcbIntegration(QStringList const&, int&, char**) (in /usr/lib/x86_64-linux-gnu/libQt5XcbQpa.so.5.5.1)
+==158==    by 0x41363AC: ??? (in /usr/lib/x86_64-linux-gnu/qt5/plugins/platforms/libqxcb.so)
+==158==    by 0x7AC4D91: QPlatformIntegrationFactory::create(QString const&, QStringList const&, int&, char**, QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AD0FC3: QGuiApplicationPrivate::createPlatformIntegration() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AD1ECC: QGuiApplicationPrivate::createEventDispatcher() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x81B77E5: QCoreApplication::init() (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158== 
+==158== Conditional jump or move depends on uninitialised value(s)
+==158==    at 0x5478147: omnetpp::qtenv::LogInspector::setMode(omnetpp::qtenv::LogInspector::Mode) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x547669B: omnetpp::qtenv::LogInspector::LogInspector(QWidget*, bool, omnetpp::qtenv::InspectorFactory*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5479BDD: omnetpp::qtenv::LogInspectorFactory::createInspector(QWidget*, bool) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542E891: omnetpp::qtenv::Qtenv::addEmbeddedInspector(omnetpp::qtenv::InspectorFactory*, QWidget*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542CA62: omnetpp::qtenv::Qtenv::doRun() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5088CE2: omnetpp::envir::EnvirBase::run() (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5086404: omnetpp::envir::EnvirBase::run(int, char**, omnetpp::cConfiguration*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5080E5F: omnetpp::envir::setupUserInterface(int, char**) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x50818FF: evMain (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x6BD682F: (below main) (/build/glibc-bfm8X4/glibc-2.23/csu/../csu/libc-start.c:291)
+==158== 
+==158== 9 bytes in 1 blocks are definitely lost in loss record 20 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xB105BAD: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==158==    by 0xB105E6A: _XmbTextListToTextProperty (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==158==    by 0x125DF38E: ???
+==158==    by 0x7ADC24E: QWindow::setTitle(QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x858D618: QWidgetPrivate::setWindowTitle_helper(QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x8595A04: QWidget::create(unsigned long long, bool, bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x85A0538: QWidget::setVisible(bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x87597EC: QDialog::setVisible(bool) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x8758C20: QDialog::exec() (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x877C35C: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x53D4AA7: omnetpp::qtenv::MainWindow::closeEvent(QCloseEvent*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158== 
+==158== 12 bytes in 1 blocks are definitely lost in loss record 22 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149FA52E: ???
+==158==    by 0x149DCF7F: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158==    by 0x7AB54AB: QAccessible::isActive() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AB566B: QAccessible::updateAccessibility(QAccessibleEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x865A8E3: QAbstractButton::setText(QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x87208BD: QToolButton::setDefaultAction(QAction*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 12 bytes in 1 blocks are definitely lost in loss record 23 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149FA52E: ???
+==158==    by 0x149DCF2D: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158==    by 0x7AB54AB: QAccessible::isActive() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AB566B: QAccessible::updateAccessibility(QAccessibleEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x865A8E3: QAbstractButton::setText(QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x87208BD: QToolButton::setDefaultAction(QAction*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 120 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C522: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE7030B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 121 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA9957D7: g_realloc (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C406: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE7030B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 122 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C522: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE70371: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 123 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA9957D7: g_realloc (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C406: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE70371: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 124 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C522: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE79B04: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A181: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 125 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA9957D7: g_realloc (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C406: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE79B04: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A181: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 126 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C522: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE74C1B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A186: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 16 bytes in 1 blocks are possibly lost in loss record 127 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x4C2FDEF: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA9957D7: g_realloc (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8C406: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F90: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE74C1B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A186: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 32 bytes in 1 blocks are definitely lost in loss record 412 of 1,686
+==158==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x544B22D: omnetpp::qtenv::ModuleOutputContentProvider::ModuleOutputContentProvider(omnetpp::qtenv::Qtenv*, omnetpp::cComponent*, omnetpp::qtenv::LogInspector::Mode) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x54781E5: omnetpp::qtenv::LogInspector::setMode(omnetpp::qtenv::LogInspector::Mode) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x547669B: omnetpp::qtenv::LogInspector::LogInspector(QWidget*, bool, omnetpp::qtenv::InspectorFactory*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5479BDD: omnetpp::qtenv::LogInspectorFactory::createInspector(QWidget*, bool) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542E891: omnetpp::qtenv::Qtenv::addEmbeddedInspector(omnetpp::qtenv::InspectorFactory*, QWidget*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542CA62: omnetpp::qtenv::Qtenv::doRun() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5088CE2: omnetpp::envir::EnvirBase::run() (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5086404: omnetpp::envir::EnvirBase::run(int, char**, omnetpp::cConfiguration*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5080E5F: omnetpp::envir::setupUserInterface(int, char**) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x50818FF: evMain (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x6BD682F: (below main) (/build/glibc-bfm8X4/glibc-2.23/csu/../csu/libc-start.c:291)
+==158== 
+==158== 32 bytes in 1 blocks are definitely lost in loss record 413 of 1,686
+==158==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x544B22D: omnetpp::qtenv::ModuleOutputContentProvider::ModuleOutputContentProvider(omnetpp::qtenv::Qtenv*, omnetpp::cComponent*, omnetpp::qtenv::LogInspector::Mode) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x54781E5: omnetpp::qtenv::LogInspector::setMode(omnetpp::qtenv::LogInspector::Mode) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x54786DA: omnetpp::qtenv::LogInspector::doSetObject(omnetpp::cObject*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5440515: omnetpp::qtenv::Inspector::setObject(omnetpp::cObject*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x81E1D29: QMetaObject::activate(QObject*, int, int, void**) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0x548120E: omnetpp::qtenv::Inspector::inspectedObjectChanged(omnetpp::cObject*, omnetpp::cObject*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x543F3FA: omnetpp::qtenv::Inspector::doSetObject(omnetpp::cObject*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5464C0A: omnetpp::qtenv::ModuleInspector::doSetObject(omnetpp::cObject*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5440515: omnetpp::qtenv::Inspector::setObject(omnetpp::cObject*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542F295: omnetpp::qtenv::Qtenv::newRun(char const*, int) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542EAD3: omnetpp::qtenv::Qtenv::initialSetUpConfiguration() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158== 
+==158== 42 bytes in 1 blocks are definitely lost in loss record 944 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149FA52E: ???
+==158==    by 0x149DCED4: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158==    by 0x7AB54AB: QAccessible::isActive() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AB566B: QAccessible::updateAccessibility(QAccessibleEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x865A8E3: QAbstractButton::setText(QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x87208BD: QToolButton::setDefaultAction(QAction*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 72 (24 direct, 48 indirect) bytes in 1 blocks are definitely lost in loss record 1,284 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149FC3B1: ???
+==158==    by 0x149EA3DD: ???
+==158==    by 0x149F1375: ???
+==158==    by 0x149E0C2E: ???
+==158==    by 0x149DC9F7: ???
+==158==    by 0x149DCC5E: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158== 
+==158== 96 bytes in 1 blocks are possibly lost in loss record 1,382 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8BA59: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE8BB43: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A0AA: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158==    by 0xFFF0006F8: ???
+==158== 
+==158== 96 bytes in 1 blocks are possibly lost in loss record 1,383 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8BA59: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE8BB43: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F82: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE7030B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 96 bytes in 1 blocks are possibly lost in loss record 1,384 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8BA59: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE8BB43: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F82: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE70371: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 96 bytes in 1 blocks are possibly lost in loss record 1,385 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8BA59: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE8BB43: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F82: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE79B04: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A181: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 96 bytes in 1 blocks are possibly lost in loss record 1,386 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8BA59: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE8BB43: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90F82: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE74C1B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A186: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 132 bytes in 1 blocks are possibly lost in loss record 1,466 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8CDFF: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90FE0: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE7030B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 132 bytes in 1 blocks are possibly lost in loss record 1,467 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8CDFF: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90FE0: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE70371: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A177: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 148 bytes in 1 blocks are possibly lost in loss record 1,489 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8CBD6: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90FE0: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE79B04: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A181: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 148 bytes in 1 blocks are possibly lost in loss record 1,490 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA995770: g_malloc0 (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8CBD6: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE90FE0: g_type_register_fundamental (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE74C1B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A186: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158==    by 0xFFF0006F5: ???
+==158== 
+==158== 184 bytes in 1 blocks are possibly lost in loss record 1,507 of 1,686
+==158==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xA9957D7: g_realloc (in /lib/x86_64-linux-gnu/libglib-2.0.so.0.4800.2)
+==158==    by 0xAE8B9D8: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE912CC: g_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE7B799: g_param_type_register_static (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE7DAFB: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0xAE6A18B: ??? (in /usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.4800.2)
+==158==    by 0x40106B9: call_init.part.0 (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:72)
+==158==    by 0x40107CA: call_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:30)
+==158==    by 0x40107CA: _dl_init (/build/glibc-bfm8X4/glibc-2.23/elf/dl-init.c:120)
+==158==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==158==    by 0x4: ???
+==158==    by 0xFFF0006C6: ???
+==158== 
+==158== 192 bytes in 6 blocks are definitely lost in loss record 1,509 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xF27E14B: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xF27BED0: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0xF27D8D6: xcb_wait_for_event (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==158==    by 0x125C9888: ???
+==158==    by 0x7FD27BD: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0xA0686B9: start_thread (/build/glibc-bfm8X4/glibc-2.23/nptl/pthread_create.c:333)
+==158==    by 0x6CBD3DC: clone (/build/glibc-bfm8X4/glibc-2.23/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:109)
+==158== 
+==158== 224 (136 direct, 88 indirect) bytes in 1 blocks are definitely lost in loss record 1,527 of 1,686
+==158==    at 0x4C2E80F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x8036253: QHashData::rehash(int) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0x888FC9D: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FF89: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x88B1426: QGraphicsView::paintEvent(QPaintEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x85A0FC7: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x869FB8D: QFrame::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x88AFFB2: QGraphicsView::viewportEvent(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x81B3171: QCoreApplicationPrivate::sendThroughObjectEventFilters(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0x855E03B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x8563515: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x81B338A: QCoreApplication::notifyInternal(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158== 
+==158== 288 (256 direct, 32 indirect) bytes in 1 blocks are definitely lost in loss record 1,552 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0xB61E0B9: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0)
+==158==    by 0xB61E829: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0)
+==158==    by 0xB61FD4A: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0)
+==158==    by 0xB62519B: ??? (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0)
+==158==    by 0xD9D7A9B: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.0)
+==158==    by 0xD9D83AB: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.0)
+==158==    by 0xD9D9CCD: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.0)
+==158==    by 0xD9DA424: ??? (in /lib/x86_64-linux-gnu/libexpat.so.1.6.0)
+==158==    by 0xD9DC72A: XML_ParseBuffer (in /lib/x86_64-linux-gnu/libexpat.so.1.6.0)
+==158==    by 0xB62452A: FcConfigParseAndLoad (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0)
+==158==    by 0xB624836: FcConfigParseAndLoad (in /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.9.0)
+==158== 
+==158== 324 (136 direct, 188 indirect) bytes in 1 blocks are definitely lost in loss record 1,558 of 1,686
+==158==    at 0x4C2E80F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x8036253: QHashData::rehash(int) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0x888E06D: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888EAC3: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FF89: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 384 (184 direct, 200 indirect) bytes in 1 blocks are definitely lost in loss record 1,580 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149E9E74: ???
+==158==    by 0x149ED1F7: ???
+==158==    by 0x149DE831: ???
+==158==    by 0x149E1344: ???
+==158==    by 0x149DCC4B: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158==    by 0x7AB54AB: QAccessible::isActive() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158== 
+==158== 520 bytes in 13 blocks are definitely lost in loss record 1,608 of 1,686
+==158==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x14A02761: ???
+==158==    by 0x149F6354: ???
+==158==    by 0x145689C8: ???
+==158==    by 0x1455CBEB: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158==    by 0x7AB54AB: QAccessible::isActive() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AB566B: QAccessible::updateAccessibility(QAccessibleEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x865A8E3: QAbstractButton::setText(QString const&) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 704 (368 direct, 336 indirect) bytes in 2 blocks are definitely lost in loss record 1,618 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149E9E74: ???
+==158==    by 0x149EE9DA: ???
+==158==    by 0x149F71DF: ???
+==158==    by 0x149F72B5: ???
+==158==    by 0x149F7E0D: ???
+==158==    by 0x149F8534: ???
+==158==    by 0x149F700D: ???
+==158==    by 0x149DFC63: ???
+==158==    by 0x149E063C: ???
+==158==    by 0x149E0C19: ???
+==158==    by 0x149DC9F7: ???
+==158== 
+==158== 727 (184 direct, 543 indirect) bytes in 1 blocks are definitely lost in loss record 1,620 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149E9E74: ???
+==158==    by 0x149EAC29: ???
+==158==    by 0x149DC9DC: ???
+==158==    by 0x149DCC5E: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158==    by 0x125CFB7D: ???
+==158==    by 0x7AB54AB: QAccessible::isActive() (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158==    by 0x7AB566B: QAccessible::updateAccessibility(QAccessibleEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1)
+==158== 
+==158== 727 (184 direct, 543 indirect) bytes in 1 blocks are definitely lost in loss record 1,621 of 1,686
+==158==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x149E9E74: ???
+==158==    by 0x149EDEDA: ???
+==158==    by 0x149F0E07: ???
+==158==    by 0x149E094D: ???
+==158==    by 0x149E0BFF: ???
+==158==    by 0x149DC9F7: ???
+==158==    by 0x149DCC5E: ???
+==158==    by 0x1455CE81: ???
+==158==    by 0x1455D206: ???
+==158==    by 0x1260F8A9: ???
+==158==    by 0x12605851: ???
+==158== 
+==158== 1,296 (544 direct, 752 indirect) bytes in 4 blocks are definitely lost in loss record 1,653 of 1,686
+==158==    at 0x4C2E80F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x8036253: QHashData::rehash(int) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0x888E06D: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888EAC3: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888FA27: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x888E6BC: ??? (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 27,358 (16 direct, 27,342 indirect) bytes in 1 blocks are definitely lost in loss record 1,684 of 1,686
+==158==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x888B11C: QGraphicsScene::addLine(QLineF const&, QPen const&) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x546E037: omnetpp::qtenv::TimeLineGraphicsView::rebuildScene() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x54307F7: omnetpp::qtenv::Qtenv::callRefreshInspectors() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5430680: omnetpp::qtenv::Qtenv::finishSimulation() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x53D4B75: omnetpp::qtenv::MainWindow::closeEvent(QCloseEvent*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x85A0FC7: QWidget::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x86B6DBA: QMainWindow::event(QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x855E05B: QApplicationPrivate::notify_helper(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x8563515: QApplication::notify(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158==    by 0x81B338A: QCoreApplication::notifyInternal(QObject*, QEvent*) (in /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1)
+==158==    by 0x859C2BC: QWidgetPrivate::close_helper(QWidgetPrivate::CloseMode) (in /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1)
+==158== 
+==158== 50,892 (16 direct, 50,876 indirect) bytes in 1 blocks are definitely lost in loss record 1,685 of 1,686
+==158==    at 0x4C2E0EF: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==158==    by 0x541A541: omnetpp::qtenv::ModuleCanvasViewer::ModuleCanvasViewer() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5463118: omnetpp::qtenv::ModuleInspector::createViews(bool) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x546291C: omnetpp::qtenv::ModuleInspector::ModuleInspector(QWidget*, bool, omnetpp::qtenv::InspectorFactory*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5467D4D: omnetpp::qtenv::ModuleInspectorFactory::createInspector(QWidget*, bool) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542E891: omnetpp::qtenv::Qtenv::addEmbeddedInspector(omnetpp::qtenv::InspectorFactory*, QWidget*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x542CA30: omnetpp::qtenv::Qtenv::doRun() (in /usr/omnetpp/omnetpp-5.2/lib/liboppqtenv.so)
+==158==    by 0x5088CE2: omnetpp::envir::EnvirBase::run() (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5086404: omnetpp::envir::EnvirBase::run(int, char**, omnetpp::cConfiguration*) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x5080E5F: omnetpp::envir::setupUserInterface(int, char**) (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x50818FF: evMain (in /usr/omnetpp/omnetpp-5.2/lib/liboppenvir.so)
+==158==    by 0x6BD682F: (below main) (/build/glibc-bfm8X4/glibc-2.23/csu/../csu/libc-start.c:291)
+==158== 

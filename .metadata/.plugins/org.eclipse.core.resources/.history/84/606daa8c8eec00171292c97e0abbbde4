@@ -1,0 +1,404 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+#include "Txc.h"
+#include "ieee802_11.h"
+#include "gl_typedef.h"
+
+namespace z_ct_sae {
+
+Define_Module(Txc);
+
+unsigned char rxFrame[]=
+      {0xb0, 0x00, 0x00, 0x00, 0x10, 0x20, 0x30, 0x00,
+       0x00, 0x00, 0x40, 0x50, 0x60, 0x00, 0x00, 0x00,
+       0x10, 0x20, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00,
+       0x03, 0x00, 0x01, 0x00, 0x00, 0x00, 0x13, 0x00,
+       0x6c, 0x79, 0x35, 0x66, 0x69, 0x5b, 0xfd, 0x20,
+       0x6e, 0x9a, 0x96, 0x83, 0xac, 0xe7, 0xe7, 0x1c,
+       0x42, 0xfa, 0x63, 0xf4, 0x18, 0x66, 0x58, 0xa5,
+       0x98, 0x87, 0x33, 0xf0, 0xef, 0xbe, 0x50, 0x25,
+       0xbb, 0x17, 0x55, 0xe1, 0x74, 0xc7, 0xbd, 0x2d,
+       0x2d, 0x38, 0xb2, 0xf2, 0x65, 0x66, 0x94, 0xa0,
+       0x47, 0xf3, 0x96, 0x76, 0x1e, 0xa9, 0xe3, 0xfd,
+       0x8d, 0xc5, 0x03, 0xf5, 0x70, 0x8f, 0x18, 0xc6,
+       0x6c, 0x26, 0x0f, 0x8e, 0x2a, 0x8d, 0xa7, 0xb4,
+       0x87, 0x5a, 0xaa, 0x64, 0xd6, 0xcc, 0xcc, 0x02,
+       0xd9, 0x6f, 0xd5, 0xfa, 0x9a, 0x7f, 0x4e, 0x9e,
+       0xee, 0x9a, 0x44, 0x82, 0xfb, 0xfd, 0x4e, 0xc1};
+
+void Txc::initialize()
+{
+    if (par("sendInitialMessage").boolValue())
+    {
+        cMessage *msg = new cMessage("tictocMsg");
+
+        msg->setContextPointer(rxFrame);
+
+        send(msg, "out");
+    }
+}
+
+void Txc::handleMessage(cMessage *msg)
+{
+    struct ieee80211_mgmt_frame *frame;
+    unsigned short grp;
+
+    frame=(ieee80211_mgmt_frame *)msg->getContextPointer();
+
+
+    // just send back the message we received
+    send(msg, "out");
+}
+
+enum result {
+    NO_ERR,
+    ERR_NOT_FATAL,
+    ERR_FATAL,
+    ERR_BLACKLIST
+};
+
+enum result
+process_authentication_frame (struct candidate *peer, struct ieee80211_mgmt_frame *frame, int len)
+{
+    unsigned short grp;
+    unsigned short seq = ieee_order(frame->authenticate.auth_seq);
+    unsigned short status = ieee_order(frame->authenticate.status);
+    GD *group_def;
+    struct candidate *delme;
+    enum result ret;
+
+    sae_debug(SAE_DEBUG_PROTOCOL_MSG, "recv'd %s from " MACSTR " while in %s\n",
+              seq_to_string(seq), MAC2STR(frame->sa),
+              state_to_string(peer->state));
+
+    srv_rem_timeout(srvctx, peer->t0);
+    peer->t0 = 0;
+    /*
+     * implement the state machine for SAE
+     */
+    switch (peer->state) {
+        case SAE_NOTHING:
+            switch (seq) {
+                case SAE_AUTH_COMMIT:
+                    /*
+                     * if the status is anything other than 0 then throw this away
+                     * since as far as we're concerned this is unsolicited and there's
+                     * no error we committed.
+                     */
+                    if (status != 0) {
+                        return ERR_FATAL;
+                    }
+                    /*
+                     * grab the group from the frame...
+                     */
+                    grp = ieee_order(*((frame->authenticate.u.var16)));
+                    /*
+                     * ...and see if it's supported
+                     */
+                    group_def = gd;
+                    while (group_def) {
+                        if (grp == group_def->group_num) {
+                            if (assign_group_to_peer(peer, group_def) < 0) {
+                                return ERR_FATAL;
+                            }
+                            break;
+                        }
+                        group_def = group_def->next;
+                    }
+                    if (group_def == NULL) {
+                        /*
+                         * send a rejection to the peer and a "del" event to the parent
+                         */
+                        sae_debug(SAE_DEBUG_STATE_MACHINE, "group %d not supported, reject.\n", grp);
+                        reject_to_peer(peer, frame);
+                        return ERR_FATAL;
+                    }
+                    sae_debug(SAE_DEBUG_STATE_MACHINE, "COMMIT received for unknown peer " MACSTR ", committing and confirming\n",
+                    MAC2STR(peer->peer_mac));
+                    peer->sc = peer->rc = 0;
+                    commit_to_peer(peer, NULL, 0);
+                    if (process_commit(peer, frame, len) < 0) {
+                        return ERR_FATAL;
+                    }
+                    /*
+                     * send both a commit and a confirm and transition into confirmed
+                     */
+                    confirm_to_peer(peer);
+                    peer->sync = 0;
+                    peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                    peer->state = SAE_CONFIRMED;
+                    break;
+                case SAE_AUTH_CONFIRM:
+                    return ERR_FATAL;
+                default:
+                    sae_debug(SAE_DEBUG_ERR, "unknown SAE frame (%d) from " MACSTR "\n",
+                           seq, MAC2STR(peer->peer_mac));
+                    return ERR_NOT_FATAL;
+            }
+            break;
+        case SAE_COMMITTED:
+            switch (seq) {
+                case SAE_AUTH_COMMIT:
+                    /*
+                     * if it's an anti-clogging token request, send another
+                     * commit with the token.
+                     *
+                     * Increment the sync counter, the spec doesn't say so but this
+                     * guards against bad implementations.
+                     */
+                    if (status == WLAN_STATUS_ANTI_CLOGGING_TOKEN_NEEDED) {
+                        sae_debug(SAE_DEBUG_STATE_MACHINE,
+                                  "received a token request, add a token, length %d, and resend commit\n",
+                                  (len - (IEEE802_11_HDR_LEN + sizeof(frame->authenticate))));
+                        commit_to_peer(peer, frame->authenticate.u.var8,
+                                       (len - (IEEE802_11_HDR_LEN + sizeof(frame->authenticate))));
+                        peer->sync = 0;
+                        peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                        break;
+                    }
+                    /*
+                     * grab the group from the frame, we need it later
+                     */
+                    grp = ieee_order(*((frame->authenticate.u.var16)));
+                    if (status == WLAN_STATUS_NOT_SUPPORTED_GROUP) {
+                        /*
+                         * if it's a rejection check whether it's what we sent.
+                         * If so try another configured group.
+                         */
+                        if (grp == peer->grp_def->group_num) {
+                            /*
+                             * if there's no more configured groups to offer then just declare failure,
+                             * blacklist the client since we cannot currently communicate.
+                             */
+                            if (peer->grp_def->next == NULL) {
+                                return ERR_BLACKLIST;
+                            }
+                            /*
+                             * otherwise assign the next group and send another commit
+                             */
+                            group_def = peer->grp_def->next;
+                            sae_debug(SAE_DEBUG_STATE_MACHINE, "peer rejected %d, try group %d instead...\n",
+                                      peer->grp_def->group_num, group_def->group_num);
+                            assign_group_to_peer(peer, group_def);
+                            commit_to_peer(peer, NULL, 0);
+                            peer->sync = 0;
+                        } else {
+                            sae_debug(SAE_DEBUG_STATE_MACHINE,
+                                      "peer is rejecting something (%d) not offered, must be old, ignore...\n", grp);
+                        }
+                        peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                        break;
+                    }
+                    /*
+                     * silently drop any other failure
+                     */
+                    if (status != 0) {
+                        peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                        break;
+                    }
+                    /*
+                     * if the group offered is not the same as what we offered
+                     * that means the commit messages crossed in the ether. Check
+                     * whether this is something we can support and if so tie break.
+                     */
+                    if (grp != peer->grp_def->group_num) {
+                        group_def = gd;
+                        while (group_def) {
+                            if (grp == group_def->group_num) {
+                                break;
+                            }
+                            group_def = group_def->next;
+                        }
+                        /*
+                         * nope, not supported, send rejection
+                         */
+                        if (group_def == NULL) {
+                            if (peer->sync > giveup_threshold) {
+                                return ERR_FATAL;
+                            }
+                            sae_debug(SAE_DEBUG_STATE_MACHINE, "group %d not supported, send rejection\n", grp);
+                            peer->sync++;
+                            reject_to_peer(peer, frame);
+                            peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                            break;
+                        }
+                        /*
+                         * OK, this is not what we offered but it's aceptable...
+                         */
+                        if (memcmp(peer->my_mac, peer->peer_mac, ETH_ALEN) > 0) {
+                            sae_debug(SAE_DEBUG_STATE_MACHINE,
+                                      "offered group %d, got %d in return, numerically greater, maintain.\n",
+                                      peer->grp_def->group_num, grp);
+
+                            /*
+                             * the numerically greater MAC address retransmits
+                             */
+                            commit_to_peer(peer, NULL, 0);
+                            peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                            break;
+                        } else {
+                            sae_debug(SAE_DEBUG_STATE_MACHINE,
+                                      "offered group %d, got %d in return, numerically lesser, submit.\n",
+                                      peer->grp_def->group_num, grp);
+                            /*
+                             * the numerically lesser converts, send a commit with
+                             * this group and then just proceed with the acceptable
+                             * commit
+                             */
+                            peer->sync = 0;
+                            assign_group_to_peer(peer, group_def);
+                            commit_to_peer(peer, NULL, 0);
+                            if (process_commit(peer, frame, len) < 0) {
+                                return ERR_FATAL;
+                            }
+                        }
+                    } else {
+                        /*
+                         * else it's the group we offered, check for a reflection attack,
+                         * and if not then process the frame
+                         */
+                        if (check_dup(peer, 1, frame, len) == 0) {
+                            return NO_ERR;      /* silently discard */
+                        }
+                        if (process_commit(peer, frame, len) < 0) {
+                            return ERR_FATAL;
+                        }
+                    }
+                    confirm_to_peer(peer);
+                    peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                    peer->state = SAE_CONFIRMED;
+                    break;
+                case SAE_AUTH_CONFIRM:
+                    sae_debug(SAE_DEBUG_STATE_MACHINE, "got CONFIRM before COMMIT, try again\n");
+                    if (peer->sync > giveup_threshold) {
+                        return ERR_FATAL;
+                    }
+                    peer->sync++;
+                    commit_to_peer(peer, NULL, 0);
+                    peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                    break;
+                default:
+                    sae_debug(SAE_DEBUG_ERR, "unknown SAE frame (%d) from " MACSTR "\n",
+                              seq, MAC2STR(peer->peer_mac));
+                    return ERR_NOT_FATAL;
+            }
+            break;
+        case SAE_CONFIRMED:
+            if (status != 0) {
+                /*
+                 * silently discard, but since we cancelled the timer above, reset it
+                 */
+                peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                break;
+            }
+            switch (seq) {
+                case SAE_AUTH_COMMIT:
+                    if (peer->sync > giveup_threshold) {
+                        return ERR_FATAL;
+                    }
+                    grp = ieee_order(*(frame->authenticate.u.var16));
+                    if (grp == peer->grp_def->group_num) {
+                        sae_debug(SAE_DEBUG_STATE_MACHINE, "got COMMIT again, try to resync\n");
+                        peer->sync++;
+                        commit_to_peer(peer, NULL, 0);
+                        confirm_to_peer(peer);
+                    }
+                    peer->t0 = srv_add_timeout(srvctx, SRV_SEC(retrans), retransmit_peer, peer);
+                    break;
+                case SAE_AUTH_CONFIRM:
+                    ret = process_confirm(peer, frame, len);
+                    switch (ret) {
+                        case ERR_FATAL:
+                        case ERR_BLACKLIST:
+                            sae_debug(SAE_DEBUG_STATE_MACHINE, "Delete event received from protocol instance for " MACSTR "\n",
+                                      MAC2STR(peer->peer_mac));
+                            return ret;
+                        case ERR_NOT_FATAL:                   /* this is not in 11s draft */
+                            peer->sync++;
+                            confirm_to_peer(peer);
+                            return NO_ERR;
+                        case NO_ERR:
+                            break;
+                    }
+                    curr_open--;
+                    peer->sc = COUNTER_INFINITY;
+                    if ((delme = find_peer(peer->peer_mac, 1)) != NULL) {
+                        sae_debug(SAE_DEBUG_STATE_MACHINE,
+                                  "peer " MACSTR " in %s has just ACCEPTED, found another in %s, deleting\n",
+                                  MAC2STR(peer->peer_mac),
+                                  state_to_string(peer->state), state_to_string(delme->state));
+                        delete_peer(&delme);
+                    }
+                    /*
+                     * print out the PMK if we have debugging on for that
+                     */
+                    if (peer->state != SAE_ACCEPTED) {
+                        if (sae_debug_mask & SAE_DEBUG_CRYPTO) {
+                            print_buffer("PMK", peer->pmk, SHA256_DIGEST_LENGTH);
+                        }
+                        fin(WLAN_STATUS_SUCCESSFUL, peer->peer_mac, peer->pmk, SHA256_DIGEST_LENGTH, peer->cookie);
+                    }
+                    sae_debug(SAE_DEBUG_PROTOCOL_MSG, "setting reauth timer for %d seconds\n", pmk_expiry);
+                    if (peer->t1)
+                        srv_rem_timeout(srvctx, peer->t1);
+                    peer->t1 = srv_add_timeout_with_jitter(srvctx, SRV_SEC(pmk_expiry), reauth, peer, SRV_SEC(REAUTH_JITTER));
+                    peer->state = SAE_ACCEPTED;
+                    break;
+                default:
+                    sae_debug(SAE_DEBUG_ERR, "unknown SAE frame (%d) from " MACSTR "\n",
+                              seq, MAC2STR(peer->peer_mac));
+                    return ERR_NOT_FATAL;
+            }
+            break;
+        case SAE_ACCEPTED:
+            switch (seq) {
+                case SAE_AUTH_COMMIT:
+                    /*
+                     * something stinks in state machine land...
+                     */
+                    break;
+                case SAE_AUTH_CONFIRM:
+                    if (peer->sync > giveup_threshold) {
+                        sae_debug(SAE_DEBUG_STATE_MACHINE, "too many syncronization errors on " MACSTR ", deleting\n",
+                                  MAC2STR(peer->peer_mac));
+                        return ERR_FATAL;
+                    }
+                    /*
+                     * must've lost our confirm, check if it's old or invalid,
+                     * if neither send confirm again....
+                     */
+                    if (check_confirm(peer, frame) &&
+                        (process_confirm(peer, frame, len) >= 0)) {
+                        sae_debug(SAE_DEBUG_STATE_MACHINE, "peer " MACSTR " resending CONFIRM...\n",
+                        MAC2STR(peer->peer_mac));
+                        peer->sync++;
+                        confirm_to_peer(peer);
+                    }
+                    break;
+                default:
+                    sae_debug(SAE_DEBUG_ERR, "unknown SAE frame (%d) from " MACSTR "\n",
+                              seq, MAC2STR(peer->peer_mac));
+                    return ERR_NOT_FATAL;
+            }
+            break;
+    }
+    sae_debug(SAE_DEBUG_STATE_MACHINE, "state of " MACSTR " is now (%d) %s\n\n",
+              MAC2STR(peer->peer_mac), peer->state, state_to_string(peer->state));
+    return NO_ERR;
+}
+
+
+}; // namespace

@@ -1,0 +1,9 @@
+13:13:42 **** Clean-only build of configuration debug for project z_ct_openssl_trial ****
+make MODE=debug clean 
+cd src && make clean
+make[1]: Entering directory '/work/Omnet/z_ct_openssl_trial/src'
+Cleaning z_ct_openssl_trial_dbg
+make[1]: Leaving directory '/work/Omnet/z_ct_openssl_trial/src'
+
+13:13:42 Build Finished (took 308ms)
+

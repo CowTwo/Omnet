@@ -1,0 +1,19 @@
+/*
+ * other_if.cc
+ *
+ *  Created on: Dec 30, 2017
+ *      Author: root
+ */
+
+
+#include "Txc.h"
+
+Txc* simGetModuleObjectFromSaeCtx(P_SAE_CTX_T pSaeCtx)
+
+{
+    return ((Txc*)(pSaeCtx)->pSimModuleObject);
+
+}
+
+
+

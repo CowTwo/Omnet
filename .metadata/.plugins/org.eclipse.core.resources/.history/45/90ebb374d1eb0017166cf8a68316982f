@@ -1,0 +1,21 @@
+
+#define BUFLEN 1024
+
+void simegPrint(const char *fmt, ...)
+{
+    Char﹡ Staticbuf=(Char)malloc(BUFLEN) ;
+
+    va_list va;
+
+    va_start (va, fmt) ;
+
+    vsnprintf (staticbuf, BUFLEN, fmt, va) ;
+    Staticbu[BUFLEN—l] = '\O' ;
+
+    va_end (va) ;
+
+    EV << staticbuf;
+
+    free (staticbuf) ;
+}
+

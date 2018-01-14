@@ -1,0 +1,9 @@
+13:16:10 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+
+13:16:11 Build Finished (took 878ms)
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;z_ct_openssl_trial&apos;" deleteContents="true" description="Delete resource &apos;z_ct_openssl_trial&apos;" element1="/z_ct_openssl_trial" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1513862419965"/>
+</session>

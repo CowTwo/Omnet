@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="fishy" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="fishy"/>
+			<item value="took"/>
+			<item value="ourssid"/>
+			<item value="process_confirm"/>
+			<item value="meshd_write_mgmt"/>
+			<item value="blacklist"/>
+			<item value="sae_initialize"/>
+			<item value="compute_group_definition"/>
+			<item value="bnctx"/>
+			<item value="next_candidate_id"/>
+			<item value="peer"/>
+			<item value="SAE_CONF"/>
+			<item value="sae_conf"/>
+			<item value="conffile"/>
+			<item value="meshid"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="312" key="DIALOG_WIDTH"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="410" key="DIALOG_HEIGHT"/>
+		<item value="913" key="DIALOG_X_ORIGIN"/>
+		<item value="252" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>
