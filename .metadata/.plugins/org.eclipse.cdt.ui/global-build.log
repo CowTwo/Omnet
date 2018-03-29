@@ -4963,3 +4963,162 @@ inet/transportlayer/tcp_common/TCPSegment_m.cc
 inet/transportlayer/udp/UDPPacket_m.cc
 Creating shared library: ../out/clang-debug/src/libINET_dbg.so
 make[1]: Leaving directory '/work/Omnet/inet/src'
+07:05:51 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+07:27:23 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+07:27:41 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+11:33:34 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+11:38:11 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+11:46:22 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+11:56:53 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+13:43:29 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+13:47:44 **** Incremental Build of configuration gcc-debug for project inet ****
+make MODE=debug -j1 all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/inet/src'
+*** COMPILING with:
+clang++ -c -std=c++11 -g -Wall -MMD -MP -MF .d  -fPIC  -Wno-deprecated-register -Wno-unused-function -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_TKENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG -DWITH_OSGEARTH -Wno-overloaded-virtual -include inet/common/precompiled_debug.h  -DINET_EXPORT -I. -I/usr/omnetpp/omnetpp-5.2/include
+*** LINKING with:
+clang++ -shared -fPIC -o ../out/clang-debug/src/libINET_dbg.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir_dbg -loppsim_dbg -ldl -lstdc++  -lOpenThreads -losg -losgText -losgDB -losgEarth -losgEarthUtil -Wl,-rpath,/usr/omnetpp/omnetpp-5.2/lib -Wl,-rpath,/lib -Wl,-rpath,.  -L/usr/omnetpp/omnetpp-5.2/lib
+Building...
+make[1]: Nothing to be done for 'all-pch'.
+make[1]: Leaving directory '/work/Omnet/inet/src'
+14:18:47 **** Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+14:20:00 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+ln: failed to create hard link 'z_ct_sae_dbg' => '../out/clang-debug/src/z_ct_sae_dbg': Operation not permitted
+make[1]: *** [z_ct_sae_dbg] Error 1
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
+make: *** [all] Error 2
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+22:22:34 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+ln: failed to create hard link 'z_ct_sae_dbg' => '../out/clang-debug/src/z_ct_sae_dbg': Operation not permitted
+make[1]: *** [z_ct_sae_dbg] Error 1
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+make: *** [all] Error 2
+22:27:09 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+sae.cc
+Creating executable: ../out/clang-debug/src/z_ct_sae_dbg
+ln: failed to create hard link 'z_ct_sae_dbg' => '../out/clang-debug/src/z_ct_sae_dbg': Operation not permitted
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
+make[1]: *** [z_ct_sae_dbg] Error 1
+make: *** [all] Error 2
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+23:14:27 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+ln: failed to create hard link 'z_ct_sae_dbg' => '../out/clang-debug/src/z_ct_sae_dbg': Operation not permitted
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
+make[1]: *** [z_ct_sae_dbg] Error 1
+make: *** [all] Error 2
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+23:14:50 **** Incremental Build of configuration debug for project z_ct_sae ****
+make MODE=debug all 
+cd src && make
+make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
+ln: failed to create hard link 'z_ct_sae_dbg' => '../out/clang-debug/src/z_ct_sae_dbg': Operation not permitted
+make[1]: *** [z_ct_sae_dbg] Error 1
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
+make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+make: *** [all] Error 2

@@ -1539,9 +1539,6 @@
 					<entry kind="macro" name="__k8__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__linux" value="1">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__linux__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>

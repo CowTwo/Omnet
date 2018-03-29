@@ -6,3 +6,9 @@
 *.lo
 *.o
 *.obj
+
+# OMNET output vector files
+*.vec
+*.vci
+*.sca
+*.anf

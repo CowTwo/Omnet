@@ -1,9 +1,13 @@
-13:16:10 **** Incremental Build of configuration debug for project z_ct_sae ****
+23:14:50 **** Incremental Build of configuration debug for project z_ct_sae ****
 make MODE=debug all 
 cd src && make
 make[1]: Entering directory '/work/Omnet/z_ct_sae/src'
-make[1]: Nothing to be done for 'all'.
+ln: failed to create hard link 'z_ct_sae_dbg' => '../out/clang-debug/src/z_ct_sae_dbg': Operation not permitted
+make[1]: *** [z_ct_sae_dbg] Error 1
+Makefile:86: recipe for target 'z_ct_sae_dbg' failed
 make[1]: Leaving directory '/work/Omnet/z_ct_sae/src'
+Makefile:2: recipe for target 'all' failed
+make: *** [all] Error 2
 
-13:16:11 Build Finished (took 878ms)
+23:14:51 Build Finished (took 452ms)
 
