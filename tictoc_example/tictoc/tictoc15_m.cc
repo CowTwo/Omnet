@@ -7,6 +7,7 @@
 #  pragma warning(disable:4101)
 #  pragma warning(disable:4065)
 #endif
+//
 
 #if defined(__clang__)
 #  pragma clang diagnostic ignored "-Wshadow"
